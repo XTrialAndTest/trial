@@ -195,25 +195,25 @@ OSCAR_ORDER_STATUS_PIPELINE = {
 
 
 # # EMAIL
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'try123retry@gmail.com'
-EMAIL_HOST_PASSWORD = 'bnzn jwde pcmb cbkn'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+EMAIL_BACKEND = getenv("EMAIL_BACKEND")
+EMAIL_HOST = getenv("EMAIL_HOST")
+EMAIL_HOST_USER =getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = getenv("EMAIL_HOST_PASSWORD")
+EMAIL_PORT =getenv("EMAIL_PORT")
+EMAIL_USE_TLS = getenv("EMAIL_USE_TLS")
+EMAIL_USE_SSL =getenv("EMAIL_USE_SSL")
 
 
 
 MPESA_CONFIG = {
     
     
-    "CONSUMER_KEY": "WLmYcxtG0LYSutYMFUjGEqAIJzp6B2nF", 
-    "CONSUMER_SECRET": "suvr9qjG4aAo2RZc", 
-    "HOST_NAME": "homefurnisher.co.ke", 
-    "PASS_KEY": "<Your pass key from daraja>", 
-    "SAFARICOM_API": "https://sandbox.safaricom.co.ke", 
-    "SHORT_CODE": "174379"
+    "CONSUMER_KEY": getenv("CONSUMER_KEY"), 
+    "CONSUMER_SECRET": getenv("CONSUMER_SECRET"), 
+    "HOST_NAME": getenv("HOST_NAME"), 
+    "PASS_KEY":getenv("PASS_KEY"), 
+    "SAFARICOM_API": getenv("SAFARICOM_API"), 
+    "SHORT_CODE": getenv("SHORT_CODE"),
 
 }
 

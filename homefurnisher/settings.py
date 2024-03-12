@@ -1,20 +1,27 @@
 from defaults import *
 from pathlib import Path
+import dj_database_url
+from django.core.management.utils import get_random_secret_key
+from os import getenv,path
+import dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+dotenv_file=BASE_DIR/'.env'
+if path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ly@p6ssrrc8bo7%hj1-90+zbpvivm_tj=_3duu8kqo%7t5z2q2"
-
+SECRET_KEY = 'django-insecure-z3tn^hig@_v5z-!830_qjrjl$qi8-a$b6+d+5bnoi^0b9=d-zf'
+SECRET_KEY = getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+DEBUG=getenv("DEBUG", "False") == "True"
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS=getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 
 # Application definition
@@ -123,6 +130,8 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+DATABASES["default"]=dj_database_url.parse(getenv("DJ_DATABASE_URL"))
 
 
 # Password validation

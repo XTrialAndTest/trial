@@ -4,11 +4,12 @@ from oscar.apps.catalogue.models import *
 
 
 attributes={
-    'Make':['Plain','Quilted','Shaggy','Silk'],
-    "Mattress_Size":['3x6','4x6','5x6','6x6','5x8','6x9','7x10','8x11'],
-    "Carpet_Size":['5x8','6x9','7x10','8x11'],
+    'Mattress_Make':['Plain','Quilted'],
+    'Carpet_Make':['Shaggy','Silk'],
+    "Mattress_Size":['3x6','3.5x6','4x6','4.5x6','5x6','6x6',],
+    "Carpet_Size":['4x6','5x8','6x9','7x10','8x11'],
     "Thickness":['6 inches','8 inches','10 inches','12 inches'],
-    "colour":['white']
+    # "colour":['white']
 }
 
 for key,value in attributes.items():

@@ -5,7 +5,6 @@ from django.core.management.utils import get_random_secret_key
 from os import getenv,path
 import dotenv
 import os
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 dotenv_file=BASE_DIR/'.env'
@@ -184,11 +183,21 @@ AUTHENTICATION_BACKENDS = (
 )
 
 
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+#     },
+# }
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'mpesa-v02m.onrender.com/solr',
+        'INCLUDE_SPELLING': True,
     },
 }
+
+
+
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_INITIAL_LINE_STATUS = 'Pending'
 OSCAR_ORDER_STATUS_PIPELINE = {
@@ -220,4 +229,3 @@ MPESA_CONFIG = {
     "SHORT_CODE": getenv("SHORT_CODE"),
 
 }
-

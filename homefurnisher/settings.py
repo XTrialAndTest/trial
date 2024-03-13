@@ -191,7 +191,7 @@ AUTHENTICATION_BACKENDS = (
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
-        'URL': 'mpesa-v02m.onrender.com/solr',
+        'URL': 'https://mpesa-v02m.onrender.com/solr',
         'INCLUDE_SPELLING': True,
     },
 }
